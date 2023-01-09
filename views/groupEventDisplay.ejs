@@ -1,0 +1,403 @@
+<html>
+  <head>
+    <title>Group prelims register</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .menu-bar {
+        background: #0909ff;
+        text-align: left;
+      }
+      ul {
+        display: inline-flex;
+        list-style: none;
+      }
+      li {
+        text-align: center;
+        width: 100px;
+        margin: 10px;
+        padding: 10px;
+      }
+      li a {
+        text-decoration: none;
+        color: white;
+      }
+      body {
+        margin-top: 10px;
+        background-image: url("./images/bg_1.png");
+        background-size: cover;
+        background-position: center;
+        font-family: 'Roboto', sans-serif;
+      }
+      .active,
+      .menu-bar:hover {
+        background: #1569c7;
+        border-radius: 3px;
+      }
+
+      .center {
+        margin-top: 150px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        padding: 0 0 20px 0;
+        background: white;
+        border-radius: 10px;
+      }
+      #login {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        text-align: center;
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid silver;
+      }
+      .center form {
+        padding: 0 40px;
+        box-sizing: border-box;
+      }
+      form .txt_field {
+        position: relative;
+        border-bottom: 2px solid blue;
+        margin: 30px 0;
+      }
+      .txt_field input {
+        width: 100%;
+        padding: 0 5px;
+        height: 40px;
+        font-size: 16px;
+        border: none;
+        background: none;
+        outline: none;
+      }
+      input[type="submit"] {
+        background: #306eff;
+        border: none;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 2px 2px;
+        border-radius: 12px;
+      }
+
+      button {
+        background: #306eff;
+        border: none;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 2px 2px;
+        border-radius: 12px;
+        height: 150px;
+      }
+      .img {
+          position: fixed;
+          top: 30px;
+          right: 2%;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Sofia"
+    />
+  </head>
+  <body>
+    <img class="img" src="./images/departments.jpg" alt="DEPT" height="650" width="350">
+    <div class="center">
+      <h1 id="login">GROUP PRELIMS REGISTER</h1>
+      <form name="form1" action="/event" method="post">
+        <label for="event">Event name : </label>
+        <input
+          type="text"
+          name="name"
+          value="<%= event.eventName %>"
+          disabled
+        />
+        <table>
+          <tr>
+            <td>ENTER REGISTER ID -</td>
+            <td>
+              <div class="txt_field" style="width: 100%">
+                <input
+                  type="text"
+                  name="rid"
+                  value="<%= event.rid %>"
+                  placeholder="Registered ID"
+                  required
+                />
+              </div>
+            </td>
+            <td>
+              <input
+                type="text"
+                name="event"
+                value="<%= event.eventName %>"
+                hidden
+              />
+              <input type="text" name="type" value="group" hidden />
+              <input
+                type="submit"
+                value="CHECK"
+                style="width: 180px"
+              /><br /><br />
+            </td>
+          </tr>
+        </table>
+        <hr />
+      </form>
+
+      <h1 id="login">PARTICIPANTS DETAILS</h1>
+      <form name="form2" action="/event-edit" method="post">
+        <table>
+          <tr>
+            <td>Enter Email ID -</td>
+            <td>
+              <div class="txt_field" style="width: 100%">
+                <input
+                  type="email"
+                  placeholder="Email id"
+                  name="email"
+                  value="<%= event.email %>"
+                  required
+                />
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Enter Name of person 1 -</td>
+            <td>
+              <div class="txt_field" style="width: 100%">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  value="<%= event.name1 %>"
+                  name="name1"
+                  required
+                />
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Enter Register No of person 1 -</td>
+            <td>
+              <div class="txt_field" style="width: 100%">
+                <input
+                  type="text"
+                  placeholder="Register No"
+                  name="regno1"
+                  required
+                  value="<%= event.regno1 %>"
+                />
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Enter Department of person 1 -</td>
+            <td>
+              <div class="txt_field" style="width: 100%">
+                <input
+                  type="text"
+                  placeholder="Department"
+                  name="dept1"
+                  required
+                  value="<%= event.dept1 %>"
+                />
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Enter Mobile Number of person 1 -</td>
+            <td>
+              <div class="txt_field" style="width: 100%">
+                <input
+                  type="tel"
+                  placeholder="Mobile Number"
+                  name="mobile1"
+                  required
+                  value="<%= event.mobile1 %>"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Enter Name of person 2 -</td>
+            <td>
+              <div class="txt_field" style="width: 100%">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  name="name2"
+                  value="<%= event.name2 %>"
+                  required
+                />
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Enter Register No of person 2 -</td>
+            <td>
+              <div class="txt_field" style="width: 100%">
+                <input
+                  type="text"
+                  placeholder="Register No"
+                  name="regno2"
+                  required
+                  value="<%= event.regno2 %>"
+                />
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Enter Department of person 2 -</td>
+            <td>
+              <div class="txt_field" style="width: 100%">
+                <input
+                  type="text"
+                  placeholder="Department"
+                  name="dept2"
+                  required
+                  value="<%= event.dept2 %>"
+                />
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Enter Mobile Number of person 2 -</td>
+            <td>
+              <div class="txt_field" style="width: 100%">
+                <input
+                  type="tel"
+                  placeholder="Mobile Number"
+                  name="mobile2"
+                  required
+                  value="<%= event.mobile2 %>"
+                />
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Enter Team Name -</td>
+            <td>
+              <div class="txt_field" style="width: 100%">
+                <input
+                  type="text"
+                  placeholder="Team name"
+                  name="team"
+                  required
+                  value="<%= event.team %>"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Enter No of members -</td>
+            <td>
+              <div class="txt_field" style="width: 100%">
+                <input
+                  type="number"
+                  placeholder="size"
+                  name="membersCount"
+                  required
+                  value="<%= event.membersCount %>"
+                />
+              </div>
+            </td>
+          </tr>
+       
+          <tr>
+            <td>Team member details -</td>
+            <td>
+             
+              <div class="txt_field" style="width: 100%">
+                <textarea
+                  placeholder="Name1-RollNo1-Dept1, Name2-RollNo2-Dept2"
+                  name="members"
+                  required
+                  rows="10"
+                  cols="50"
+                >
+<%= event.members %></textarea
+                >
+              </div>
+            </td>
+          </tr>
+        </table>
+        <input
+          type="text"
+          value="<%= event.eventName%>"
+          name="eventName"
+          hidden
+        />
+        <input type="text" value="<%= event.rid%>" name="rid" hidden />
+        <input type="text" value="group" name="type" hidden />
+        <div style="display: flex; flex-flow:row;align-items: center;justify-content: center;">
+          <div>
+            <input
+              type="submit"
+              value="INSERT"
+              style="width: 140px; font-family: 'Roboto', sans-serif;"
+            />
+          </form>
+          </div>
+          <div>
+            <form action="/event-display" method="get">
+              <input type="text" name="type" value="group" hidden />
+              <input type="text" name="name" value="<%= event.eventName %>" hidden />
+              <input
+                type="submit"
+                value="DISPLAY"
+                style="
+                  background: #306eff;
+                  border: none;
+                  color: white;
+                  padding: 20px;
+                  text-align: center;
+                  text-decoration: none;
+                  font-size: 16px;
+                  margin: 2px 2px;
+                  border-radius: 12px;
+                  width: 140px;
+                "
+              />
+            </form>
+          </div>
+          <div>
+            <a
+              href="https://enthusiaprelimsregistration.herokuapp.com/logout"
+              style="
+                background: #306eff;
+                border: none;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 16px;
+                margin: 2px 2px;
+                border-radius: 12px;
+                width: 140px;
+              "
+              >LOGOUT</a
+            >
+          </div>
+        </div>
+    </div>
+    <br />
+    <br />
+  </body>
+</html>
